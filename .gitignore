@@ -1,0 +1,6 @@
+.env
+.idea/commandlinetools/
+mysql/
+var/
+vendor/
+.DS_Store
