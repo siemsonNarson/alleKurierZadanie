@@ -3,12 +3,12 @@
 namespace App\Core\Invoice\Application\EventListener;
 
 use App\Core\Invoice\Domain\Event\InvoiceCreatedEvent;
-use App\Core\Invoice\Domain\Notification\NotificationInterface;
+use App\Core\Invoice\Infrastructure\Notification\Email\Mailer;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class SendEmailInvoiceCreatedEventSubscriberListener implements EventSubscriberInterface
 {
-    public function __construct(private readonly NotificationInterface $mailer)
+    public function __construct(private readonly Mailer $mailer)
     {
     }
 

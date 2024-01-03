@@ -21,9 +21,14 @@ class User
     private ?int $id;
 
     /**
-     * @ORM\Column(type="string", length=300, nullable=false)
+     * @ORM\Column(type="string", length=300, nullable=false, unique=true)
      */
     private string $email;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=false, options={"default": false})
+     */
+    private bool $isActive = false;
 
     public function __construct(string $email)
     {
@@ -34,5 +39,17 @@ class User
     public function getEmail(): string
     {
         return $this->email;
+    }
+
+    public function isActive(): bool
+    {
+        return $this->isActive;
+    }
+
+    public function activate(): self
+    {
+        $this->isActive = true;
+
+        return $this;
     }
 }
